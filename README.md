@@ -1,9 +1,9 @@
-CRM Client Management System
+# CRM Client Management System
 
 This is a CRM application built with React + TypeScript + Express + Mongoose for managing clients.
 It allows you to add, edit, filter, and delete clients, as well as manage statuses, VIP labels, and payment information.
 
-Technologies Used
+## Technologies Used
 
 React 19
 
@@ -33,7 +33,7 @@ Morgan
 
 Dotenv
 
-Project Structure
+## Project Structure
 crm-project/
 ├── backend/
 │   ├── controllers/
@@ -88,9 +88,9 @@ crm-project/
 ├── tsconfig.json
 └── vite.config.ts
 
-Main Features
-Frontend
-Add a New Client
+# Main Features
+## Frontend
+### Add a New Client
 
 Form fields include:
 
@@ -108,25 +108,25 @@ VIP Client (checkbox)
 
 Status: active, inactive, awaiting_payment, debtor
 
-Duplicate Check
+### Duplicate Check
 
 If a client with the same email already exists, a confirm() modal appears.
 
 If canceled — data is not submitted.
 
-Name Validation
+### Name Validation
 
 Client names must be entered only in Latin characters for easier searching.
 
 If non-Latin characters are used, the form fails validation and cannot be submitted.
 
-Client Search
+### Client Search
 
 Implemented in the Sidebar using searchTerm and setSearchTerm.
 
 Displays a "No clients found" message when no results match.
 
-Edit Client
+### Edit Client
 
 Data is fetched via useParams().
 
@@ -134,7 +134,7 @@ If the ID is invalid or the client doesn’t exist — an error message is shown
 
 After saving — redirect to the main page.
 
-Delete Client
+### Delete Client
 
 Handled via onDelete.
 
@@ -142,7 +142,7 @@ On error — an error message is displayed.
 
 On success — a confirmation toast is shown.
 
-Payments Page
+### Payments Page
 
 Available at /payments.
 
@@ -150,11 +150,11 @@ Displays clients with statuses: awaiting_payment, debtor, inactive.
 
 Allows updating status when payment is received (client is removed from the list).
 
-Sidebar
+### Sidebar
 
 Includes navigation buttons:
 
-Main page
+### Main page
 
 Add new client
 
@@ -164,7 +164,7 @@ Search input
 
 Active links are highlighted with active class.
 
-Validation
+### Validation
 
 Name: min. 5 characters, required
 
@@ -174,13 +174,13 @@ Phone: validated using PhoneInput and libphonenumber-js with country selection
 
 All validations are implemented via react-hook-form.
 
-FAQ
+### FAQ
 
 The project includes a FAQ page with Q&A, serving as a user guide.
 
 The FAQ page is linked from the main menu.
 
-TypeScript
+### TypeScript
 
 All entities are strictly typed.
 
@@ -188,8 +188,8 @@ Main types are in src/types/client.ts (Client, ClientStatus, etc.).
 
 Types are used across API requests, forms, and pages.
 
-Backend
-ClientModel
+## Backend
+### ClientModel
 
 Defines the Mongoose schema for clients in MongoDB.
 
@@ -209,7 +209,7 @@ dueDate (Date) — payment deadline
 
 status (string, default: awaiting_payment) — one of "active" | "inactive" | "awaiting_payment" | "debtor"
 
-ClientController
+### ClientController
 
 Contains async CRUD handlers interacting with MongoDB via the Client model.
 
@@ -225,7 +225,7 @@ deleteClient — delete client
 
 Each method returns proper success or error responses (404/500).
 
-ClientRoutes
+### ClientRoutes
 
 Defines Express routes for client operations:
 
@@ -243,7 +243,7 @@ DELETE /api/clients/:id — delete client
 
 PUT and PATCH are handled by the same controller.
 
-Server
+## Server
 
 Main Node.js server entry file:
 
@@ -257,35 +257,35 @@ Mounts routes at /api/clients
 
 Runs on process.env.PORT or defaults to 5000
 
-Installation
+## Installation
 npm install
 
 Run Project
 
-Frontend:
+## Frontend:
 
 npm run dev
 
 
-Backend:
+## Backend:
 
 nodemon server.mjs
 
-Dashboard
+## Dashboard
 
 The dashboard shows payment history and stats:
 
-TOP-3 clients by each payment status
+### TOP-3 clients by each payment status
 
-Number of new clients for the current month
+### Number of new clients for the current month
 
-Implemented with useState and client data filtering.
+### Implemented with useState and client data filtering.
 
 Additional
 
 Styled with CSS classes: input-item, button, label, form-group.
 
-Pagination implemented (6 clients per page).
+## Pagination implemented (6 clients per page).
 
 Statuses are automatically translated to Ukrainian:
 
@@ -299,6 +299,6 @@ debtor → Боржник
 
 VIP clients are marked with a yellow star 🌟.
 
-Author
+## Author
 
 Developed by [Kateryna Demydova]
